@@ -1,0 +1,4 @@
+# ${project.name} configuration
+
+# How frequent to automatically update the compass tracked location of a player
+compass-auto-update-seconds: 30
