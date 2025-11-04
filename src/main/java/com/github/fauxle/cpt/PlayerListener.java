@@ -30,7 +30,7 @@ public class PlayerListener implements Listener {
         Player target =
                 p.getWorld().getPlayers().stream()
                         .filter(o -> o != p)
-                        .filter(o -> o.getLocation().distanceSquared(ourLocation) <= 100)
+                        .filter(o -> o.getLocation().distanceSquared(ourLocation) > 100)
                         .min(
                                 Comparator.comparingDouble(
                                         o -> ourLocation.distanceSquared(o.getLocation())))
@@ -47,7 +47,6 @@ public class PlayerListener implements Listener {
 
         if (target == null) {
             p.sendMessage(ChatColor.YELLOW + "Could not find any valid targets");
-            p.setCompassTarget(null);
             plugin.setCompassPlayerTrackingTarget(p.getUniqueId(), null);
         } else {
             p.sendMessage(ChatColor.YELLOW + "Compass pointing at " + target.getName());
