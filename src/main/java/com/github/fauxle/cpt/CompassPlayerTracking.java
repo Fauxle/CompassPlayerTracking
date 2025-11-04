@@ -12,6 +12,7 @@ public class CompassPlayerTracking extends JavaPlugin {
     @Override
     public void onEnable() {
         saveDefaultConfig();
+        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         this.compassPlayerTrackingTargets = new HashMap<>();
         this.getServer()
                 .getScheduler()
